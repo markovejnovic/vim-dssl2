@@ -87,6 +87,7 @@ syntax keyword Dssl2Keywords
     \ import
     \ lambda
     \ assert
+    \ assert_error
     \ let
     \ time
     \ while
