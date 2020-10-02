@@ -71,8 +71,6 @@ syntax match Dssl2Operator "\sor"
 syntax match Dssl2Operator "\v\~"
 
 " Methods, Functions and Properties
-" TODO: I don't know what \@<= means in vim regex and I couldn't find any
-" info on it.
 syntax match Dssl2Method "\.\@<=\<\D\w*\>\ze("
 syntax match Dssl2Property "\.\@<=\<\D\w*\>(\@!"
 
@@ -129,5 +127,8 @@ highlight default link Dssl2Structure Structure
 highlight default link Dssl2Self Identifier
 highlight default link Dssl2Method Function
 highlight default link Dssl2Property Identifier
+
+" Custom Highlight Groups
+highlight Dssl2Argument cterm=italic ctermfg=208 gui=italic guifg=#FF9700
 
 let b:current_syntax = "dssl2"
