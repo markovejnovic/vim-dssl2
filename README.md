@@ -69,3 +69,18 @@ This work is licensed under the
 
 Please see [LICENSE](https://github.com/markovejnovic/vim-dssl2/master/LICENSE)
 for more information.
+
+## Thank You
+
+There's a lot of people I'd like to thank for this small plugin, considering
+that I'm quite new to vimscripting:
+* [@keith](https://github.com/keith) for writing a fantastic
+[article](https://thoughtbot.com/blog/writing-vim-syntax-plugins) on custom vim
+plugins.
+* [@tov](https://github.com/tov/) for both
+[dssl2](https://github.com/tov/dssl2) and the insightful tips he made along the
+way.
+* [@brammool](https://github.com/brammool) for his fantastic
+[python indentation script](https://github.com/vim/vim/blob/master/runtime/indent/python.vim).
+* [@stamourv](https://github.com/stamourv) for being extremely supportive in
+the process of making this plugin.
