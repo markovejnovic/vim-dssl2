@@ -107,16 +107,16 @@ syntax match Dssl2RContract /->\s\+\zs\S\+\ze:/ contained " Return Contract
 
 syntax keyword Dssl2Keywords
     \ let
+    \ for
     \ import
     \ lambda
-    \ λ " Thank you, I hate it.
     \ assert
     \ assert_error
     \ None
     \ time
     \ while
-    \ for
     \ in
+    \ λ " Thank you, I hate it.
 
 syntax keyword Dssl2Self self
 
