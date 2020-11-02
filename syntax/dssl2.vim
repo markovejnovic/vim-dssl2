@@ -45,22 +45,25 @@ syntax region Dssl2InterpolatedWrapped start='\v(^)\zs\\\(\s*' end='\v\s*\)' con
 syntax match Dssl2InterpolatedString "\v\w+(\(\))?" contained containedin=Dssl2InterpolatedWrapped oneline
 
 " Numbers
-" I was lazy and just copied this from https://github.com/keith/swift.vim/blob/master/syntax/swift.vim
-" TODO: Check if it works
-syntax match Dssl2Number "\v<\d+>"
-syntax match Dssl2Number "\v<(\d+_+)+\d+(\.\d+(_+\d+)*)?>"
-syntax match Dssl2Number "\v<\d+\.\d+>"
-syntax match Dssl2Number "\v<\d*\.?\d+([Ee]-?)?\d+>"
-syntax match Dssl2Number "\v<0x[[:xdigit:]_]+([Pp]-?)?\x+>"
-syntax match Dssl2Number "\v<0b[01_]+>"
-syntax match Dssl2Number "\v<0o[0-7_]+>"
+syntax match Dssl2Number "\v<\d+>" " Integers
+syntax match Dssl2Number "\v<\d+\.\d+>" " Decimals
+syntax match Dssl2Number "\v<0x[[:xdigit:]_]+([Pp]-?)?\x+>" " Hex
+syntax match Dssl2Number "\v<0b[01_]+>" " Binary
+syntax match Dssl2Number "\v<0o[0-7_]+>" " Octal
+" Powers like 1.03e-2
+syntax match Dssl2Number "\v<\d+e-?\d+>" " Powers, like 1e-12
+syntax match Dssl2Number "\v<\d+\.\d+e-?\d+>" " Powers, like 1e-12
+syntax match Dssl2Number "\v<\d+E-?\d+>" " Powers, like 1e-12
+syntax match Dssl2Number "\v<\d+\.\d+E-?\d+>" " Powers, like 1e-12
+" Special
+syntax keyword Dssl2Number
+    \ inf
+    \ nan
 
 " Bools
-" TODO: Decide if None should be here.
 syntax keyword Dssl2Bools
     \ True
     \ False
-    \ None
 
 " Operators
 syntax match Dssl2Operator "\v\*\*"
@@ -81,7 +84,8 @@ syntax match Dssl2Operator "\v\>\="
 syntax match Dssl2Operator "\v\<\="
 syntax match Dssl2Operator "\v\!\="
 syntax match Dssl2Operator "\v\s+is\s+"
-syntax match Dssl2Operator "\v\s+not\s+"
+syntax match Dssl2Operator "\v\s+is\ not\s+"
+syntax match Dssl2Operator "\vnot\s+"
 syntax match Dssl2Operator "\v\s+and\s+"
 syntax match Dssl2Operator "\s\s+or\s+"
 syntax match Dssl2Operator "\v\~"
@@ -90,25 +94,32 @@ syntax match Dssl2Operator "\v\~"
 syntax match Dssl2Method "\.\@<=\<\D\w*\>\ze("
 syntax match Dssl2Property "\.\@<=\<\D\w*\>(\@!"
 
-" TODO: Missing method declaration
-
-" Arguments
-" TODO
+syntax match Dssl2FunctionDef /def.*\ze:/ contains=
+    \ Dssl2PContract,
+    \ Dssl2Param,
+    \ Dssl2DefKw,
+    \ Dssl2RContract,
+    \ Dssl2ArrowKw
+syntax match Dssl2DefKw /def\s\+/ contained
+syntax match Dssl2Param /\((\|,\s\+\)\zs\(\w\+\)\ze\(:\|)\|,\)/ contained
+syntax match Dssl2PContract /:\s\+\zs\S\+\ze\(,\|)\)/ contained " Param Contract
+syntax match Dssl2RContract /->\s\+\zs\S\+\ze:/ contained " Return Contract
 
 syntax keyword Dssl2Keywords
-    \ def
     \ let
     \ import
     \ lambda
+    \ λ " Thank you, I hate it.
     \ assert
     \ assert_error
-    \ let
+    \ None
     \ time
     \ while
+    \ for
+    \ in
 
 syntax keyword Dssl2Self self
 
-syntax keyword Dssl2Import import
 syntax keyword Dssl2Conditional
     \ if
     \ elif
@@ -145,6 +156,9 @@ highlight default link Dssl2Method Function
 highlight default link Dssl2Property Identifier
 
 " Custom Highlight Groups
-highlight Dssl2Argument cterm=italic ctermfg=208 gui=italic guifg=#FF9700
+highlight default link Dssl2Param Function
+highlight Dssl2PContract cterm=italic ctermfg=208 gui=italic guifg=#FF9700
+highlight Dssl2RContract cterm=italic ctermfg=208 gui=italic guifg=#FF9700
+highlight default link Dssl2DefKw Keyword
 
 let b:current_syntax = "dssl2"
