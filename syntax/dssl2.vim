@@ -94,7 +94,7 @@ syntax match Dssl2Operator "\v\~"
 syntax match Dssl2Method "\.\@<=\<\D\w*\>\ze("
 syntax match Dssl2Property "\.\@<=\<\D\w*\>(\@!"
 
-syntax match Dssl2FunctionDef /def.*\ze:/ contains=
+syntax match Dssl2FunctionDef /def.*\ze:\?/ contains=
     \ Dssl2PContract,
     \ Dssl2Param,
     \ Dssl2DefKw,
