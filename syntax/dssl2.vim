@@ -101,7 +101,8 @@ syntax match Dssl2FunctionDef /def.*\ze:\?/ contains=
     \ Dssl2RContract,
     \ Dssl2ArrowKw
 syntax match Dssl2DefKw /def\s\+/ contained
-syntax match Dssl2Param /\((\|,\s\+\)\zs\(\w\+\)\ze\(:\|)\|,\)/ contained
+" TODO: This ? matching is a hack. See 'isk
+syntax match Dssl2Param /\((\|,\s\+\)\zs\(\(\k\|?\)\+\)\ze\(:\|)\|,\)/ contained
 syntax match Dssl2PContract /:\s\+\zs\S\+\ze\(,\|)\)/ contained " Param Contract
 syntax match Dssl2RContract /->\s\+\zs\S\+\ze:/ contained " Return Contract
 
@@ -116,7 +117,8 @@ syntax keyword Dssl2Keywords
     \ time
     \ while
     \ in
-    \ λ " Thank you, I hate it.
+    \ λ
+    \ ∉
 
 syntax keyword Dssl2Self self
 
