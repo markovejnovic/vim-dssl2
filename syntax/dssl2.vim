@@ -43,6 +43,7 @@ syntax region Dssl2InterpolatedWrapped start='\v(^)\zs\\\(\s*' end='\v\s*\)' con
 " TODO: Test this a bit better, since it was copied from the swift syntax
 " highlight.
 syntax match Dssl2InterpolatedString "\v\w+(\(\))?" contained containedin=Dssl2InterpolatedWrapped oneline
+syntax region Dssl2MultilineString start=/"""/ end=/"""/ contains=Dssl2InterpolatedWrapped
 
 " Numbers
 syntax match Dssl2Number "\v<\d+>" " Integers
@@ -143,6 +144,7 @@ highlight default link Dssl2Todo Todo
 highlight default link Dssl2Comment Comment
 
 highlight default link Dssl2String String
+highlight default link Dssl2MultilineString String
 highlight default link Dssl2InterpolatedWrapped Delimiter
 highlight default link Dssl2Bools Boolean
 highlight default link Dssl2Number Number
