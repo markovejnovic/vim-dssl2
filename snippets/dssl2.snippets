@@ -1,0 +1,61 @@
+#    Some Ultisnips/Coc-snippets for @tov's dssl2 language
+#	 Copyright (C) 2020 Marko Vejnovic
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+snippet for "For Loop" b
+for ${1:item} in ${2:iterable}:
+	${3:${VISUAL:pass}}
+
+snippet while "While Loop" b
+while ${1:cond}:
+	${2:${VISUAL:pass}}
+
+snippet class "Class" b
+class ${1:ClassName}[${2:Contract}](${3:Inherit}):
+
+	def __init__(self$4):
+		pass
+
+snippet def "Method" b
+def ${1:FunctionName}(self$2):
+	$3
+
+snippet deff "Function" b
+def ${1:FunctionName}($2):
+	$3
+
+snippet if "If" b
+if ${1:Condition}:
+	${2:${VISUAL:pass}}
+
+snippet ife "If/Else" b
+if ${1:Condition}:
+	${2:${VISUAL:pass}}
+else:
+	${3:pass}
+
+snippet ife "If/Elif/Else" b
+if ${1:Condition}:
+	${2:${VISUAL:pass}}
+elif ${3:Condition}:
+	${4:pass}
+else:
+	${5:pass}
+
+snippet ass "Assert" b
+assert ${1${VISUAL:Expected}} == ${2:Actual}
+
+snippet ase "Assert Error" b
+assert_error ${1${VISUAL:expr}}
