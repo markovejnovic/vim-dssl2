@@ -98,7 +98,7 @@ syntax match Dssl2DefKw /def\s\+/ contained
 " TODO: This ? matching is a hack. See 'isk
 syntax match Dssl2Param /\((\|,\s\+\)\zs\(\(\k\|?\)\+\)\ze\(:\|)\|,\)/ contained
 syntax match Dssl2PContract /:\s\+\zs\S\+\ze\(,\|)\)/ contained " Param Contract
-syntax match Dssl2RContract /->\s\+\zs\S\+\ze:/ contained " Return Contract
+syntax match Dssl2RContract /->\s\+\zs\S\+\ze:\?/ contained " Return Contract
 
 syntax keyword Dssl2Keywords
     \ let
