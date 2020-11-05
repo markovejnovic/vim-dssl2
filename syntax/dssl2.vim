@@ -18,20 +18,13 @@
 " You should have received a copy of the GNU General Public License
 " along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-" TODO: In general, this works nice, but it doesn't highlight structure names
-" For example: `struct name` will not highlight `name`.
-
 if exists("b:current_syntax")
     finish
 endif
 
 " Comments
-syntax match Dssl2Comment "\v\#.*$"
-" TODO Doesn't appear to work
-syntax keyword Dssl2Todo contained TODO FIXME
-
-" TODO: Missing docstring parsing.
-" Dssl2 has a weird docstring form that exposes some sort of type-checking.
+syntax match Dssl2Comment "\v\#.*$" contains=Dssl2Todo
+syntax keyword Dssl2Todo contained TODO FIXME XXX BUG NOTE
 
 " Literals
 " Strings
