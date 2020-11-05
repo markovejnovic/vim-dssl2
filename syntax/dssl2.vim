@@ -28,15 +28,19 @@ syntax keyword Dssl2Todo contained TODO FIXME XXX BUG NOTE
 
 " Literals
 " Strings
-syntax region Dssl2String start=/"/ end=/"/ contains=Dssl2InterpolatedWrapped oneline
-syntax region Dssl2String start=/'/ end=/'/ contains=Dssl2InterpolatedWrapped oneline
-" TODO: Test this a bit better, since it was copied from the swift syntax
-" highlight.
-syntax region Dssl2InterpolatedWrapped start='\v(^)\zs\\\(\s*' end='\v\s*\)' contained containedin=Dssl2String contains=Dssl2String,Dssl2InterpolatedString oneline
-" TODO: Test this a bit better, since it was copied from the swift syntax
-" highlight.
-syntax match Dssl2InterpolatedString "\v\w+(\(\))?" contained containedin=Dssl2InterpolatedWrapped oneline
-syntax region Dssl2MultilineString start=/"""/ end=/"""/ contains=Dssl2InterpolatedWrapped
+syntax region Dssl2String start=+[bB]\='+ end=+'+ excludenl keepend contains=Dssl2StrEsc
+syntax region Dssl2String start=+[bB]\="+ end=+"+ excludenl keepend contains=Dssl2StrEsc
+syntax region Dssl2String start=+[bB]\="""+ end=+"""+ keepend contains=Dssl2StrEsc
+syntax region Dssl2String start=+[bB]\='''+ end=+'''+ keepend contains=Dssl2StrEsc
+syntax match Dssl2StrEsc /\\a/
+syntax match Dssl2StrEsc /\\b/
+syntax match Dssl2StrEsc /\\f/
+syntax match Dssl2StrEsc /\\n/
+syntax match Dssl2StrEsc /\\r/
+syntax match Dssl2StrEsc /\\t/
+syntax match Dssl2StrEsc /\\v/
+syntax match Dssl2StrEsc /\v\\x[[:xdigit:]_]+/
+syntax match Dssl2StrEsc /\v\\o[0-7_]+/
 
 " Numbers
 syntax match Dssl2Number "\v<\d+>" " Integers
@@ -136,8 +140,8 @@ highlight default link Dssl2Todo Todo
 highlight default link Dssl2Comment Comment
 
 highlight default link Dssl2String String
-highlight default link Dssl2MultilineString String
-highlight default link Dssl2InterpolatedWrapped Delimiter
+highlight default link Dssl2StrEsc Keyword
+
 highlight default link Dssl2Bools Boolean
 highlight default link Dssl2Number Number
 
