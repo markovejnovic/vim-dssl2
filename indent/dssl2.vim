@@ -1,6 +1,7 @@
 " Language:     Dssl2
 " Author:       Marko Vejnovic <marko.vejnovic@hotmail.com
 " URL:          http://github.com/markovejnovic/vim-dssl2
+" Note: THIS FILE IS A MOSTLY 1-1 COPY OF python.vim's implementation
 
 " Handles Dssl2 indentation.
 " Copyright (C) 2020 Marko Vejnovic
@@ -21,7 +22,7 @@
 " This file is completely, or in part possible thanks to the work of
 " https://github.com/vim/vim/blob/master/runtime/indent/python.vim
 
-" This file is a horrible hack (we use python indentation)
+" This file is a horrible hack (copied from python.vim)
 " TODO: Cross check this file to see if there is something clearly stupid
 " we're doing.
 

@@ -28,10 +28,14 @@ syntax keyword Dssl2Todo contained TODO FIXME XXX BUG NOTE
 
 " Literals
 " Strings
-syntax region Dssl2String start=+[bB]\='+ end=+'+ excludenl keepend contains=Dssl2StrEsc
-syntax region Dssl2String start=+[bB]\="+ end=+"+ excludenl keepend contains=Dssl2StrEsc
-syntax region Dssl2String start=+[bB]\="""+ end=+"""+ keepend contains=Dssl2StrEsc
-syntax region Dssl2String start=+[bB]\='''+ end=+'''+ keepend contains=Dssl2StrEsc
+syntax region Dssl2String start=+[bB]\='+ end=+'+ 
+    \ excludenl keepend contains=Dssl2StrEsc
+syntax region Dssl2String start=+[bB]\="+ end=+"+
+    \ excludenl keepend contains=Dssl2StrEsc
+syntax region Dssl2String start=+[bB]\="""+ end=+"""+
+    \ keepend contains=Dssl2StrEsc
+syntax region Dssl2String start=+[bB]\='''+ end=+'''+
+    \ keepend contains=Dssl2StrEsc
 syntax match Dssl2StrEsc /\\a/
 syntax match Dssl2StrEsc /\\b/
 syntax match Dssl2StrEsc /\\f/
