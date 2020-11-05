@@ -95,7 +95,7 @@ syntax match Dssl2FunctionDef /def.*\ze:\?/ contains=
     \ Dssl2RContract,
     \ Dssl2ArrowKw
 syntax match Dssl2DefKw /def\s\+/ contained
-syntax match Dssl2Param /\((\|,\s\+\)\zs\(\\k\+\)\ze\(:\|)\|,\)/ contained
+syntax match Dssl2Param /\((\|,\s\+\)\zs\(\k\+\)\ze\(:\|)\|,\)/ contained
 syntax match Dssl2PContract /:\s\+\zs\S\+\ze\(,\|)\)/ contained " Param Contract
 syntax match Dssl2RContract /->\s\+\zs\S\+\ze:\?/ contained " Return Contract
 
