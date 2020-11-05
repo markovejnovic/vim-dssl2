@@ -85,8 +85,8 @@ syntax match Dssl2Operator "\s\s+or\s+"
 syntax match Dssl2Operator "\v\~"
 
 " Methods, Functions and Properties
-syntax match Dssl2Method "\.\@<=\<\D\w*\>\ze("
-syntax match Dssl2Property "\.\@<=\<\D\w*\>(\@!"
+syntax match Dssl2Method "\.\@<=\<\D\k*\>\ze("
+syntax match Dssl2Property "\.\@<=\<\D\k*\>(\@!"
 
 syntax match Dssl2FunctionDef /def.*\ze:\?/ contains=
     \ Dssl2PContract,
@@ -95,8 +95,7 @@ syntax match Dssl2FunctionDef /def.*\ze:\?/ contains=
     \ Dssl2RContract,
     \ Dssl2ArrowKw
 syntax match Dssl2DefKw /def\s\+/ contained
-" TODO: This ? matching is a hack. See 'isk
-syntax match Dssl2Param /\((\|,\s\+\)\zs\(\(\k\|?\)\+\)\ze\(:\|)\|,\)/ contained
+syntax match Dssl2Param /\((\|,\s\+\)\zs\(\\k\+\)\ze\(:\|)\|,\)/ contained
 syntax match Dssl2PContract /:\s\+\zs\S\+\ze\(,\|)\)/ contained " Param Contract
 syntax match Dssl2RContract /->\s\+\zs\S\+\ze:\?/ contained " Return Contract
 
@@ -154,8 +153,8 @@ highlight default link Dssl2Property Identifier
 
 " Custom Highlight Groups
 highlight default link Dssl2Param Function
-highlight Dssl2PContract cterm=italic ctermfg=208 gui=italic guifg=#FF9700
-highlight Dssl2RContract cterm=italic ctermfg=208 gui=italic guifg=#FF9700
+highlight default link Dssl2RContract Type
+highlight default link Dssl2PContract Type
 highlight default link Dssl2DefKw Keyword
 
 let b:current_syntax = "dssl2"
