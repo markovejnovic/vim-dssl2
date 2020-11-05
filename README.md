@@ -8,6 +8,7 @@ vim-dssl2 is a vim plugin for the [dssl2](https://github.com/tov/dssl2)
 * Simple, regex-based keyword highlighting.
 * Small footprint.
 * Compatibility with both `neovim` and `vim`.
+* Basic `coc-snippets` and (untested) `UltiSnips` snippets
 
 This plugin arose from the need to write a usable plugin for the language.
 
