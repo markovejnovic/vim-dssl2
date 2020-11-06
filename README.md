@@ -57,11 +57,9 @@ vim.
 
 Contributing is more than appreciated! Thank you!
 
-If you'd like to request a feature or file a bug report, you can do so on
-[GitHub](https://github.com/markovejnovic/vim-dssl2/issues).
-
-There are no contributing guidelines at the moment. Please make a pull request
-which will undergo manual review if you wish to contribute.
+Please take a look at
+[CONTRIBUTING](https://github.com/markovejnovic/vim-dssl2/master/CONTRIBUTING.md)
+for more information.
 
 ## License
 
