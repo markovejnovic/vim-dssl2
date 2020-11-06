@@ -58,7 +58,7 @@ vim.
 Contributing is more than appreciated! Thank you!
 
 Please take a look at
-[CONTRIBUTING](https://github.com/markovejnovic/vim-dssl2/master/CONTRIBUTING.md)
+[CONTRIBUTING](https://github.com/markovejnovic/vim-dssl2/blob/master/CONTRIBUTING.md)
 for more information.
 
 ## License
@@ -66,7 +66,7 @@ for more information.
 This work is licensed under the
 [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html) license.
 
-Please see [LICENSE](https://github.com/markovejnovic/vim-dssl2/master/LICENSE)
+Please see [LICENSE](https://github.com/markovejnovic/vim-dssl2/blob/master/LICENSE)
 for more information.
 
 ## Thank You
