@@ -14,9 +14,6 @@ vim-dssl2 is a vim plugin for the [dssl2](https://github.com/tov/dssl2)
 
 This plugin arose from the need to write a usable plugin for the language.
 
-I love vim (you probably will too) and dssl2 doesn't have a plugin. That's how
-we got here.
-
 ## Installation
 
 Add the appropriate plugin requirements to your favorite vim package manager.
