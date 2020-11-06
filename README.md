@@ -3,7 +3,7 @@
 vim-dssl2 is a vim plugin for the [dssl2](https://github.com/tov/dssl2)
 [racket](https://racket-lang.org/) sublanguage.
 
-![Screenshot](https://github.com/markovejnovic/vim-dssl2/master/.github/screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/markovejnovic/vim-dssl2/master/.github/screenshot.png)
 
 ### Features
 
