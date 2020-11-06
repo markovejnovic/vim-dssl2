@@ -96,7 +96,7 @@ syntax match Dssl2Operator "\v\~"
 syntax match Dssl2Method "\.\zs\<\D\k*\>\ze("
 syntax match Dssl2Property "\.\zs\<\D\k*\>(\@!"
 
-syntax region Dssl2FunctionDef start='def' end='\v(:|\))\s*$'
+syntax region Dssl2FunctionDef start='def' end='\v$'
     \ contains=Dssl2DefKw,Dssl2Params,Dssl2ReturnContract,Dssl2FunctionDefName
 syntax match Dssl2FunctionDefName '\v\k+\ze\(' contained
 syntax keyword Dssl2DefKw def contained
