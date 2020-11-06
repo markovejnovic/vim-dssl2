@@ -44,13 +44,19 @@ Execute in your shell:
 cd ~/.vim/bundle
 git clone https://github.com/markovejnovic/vim-dssl2
 ```
+## Configuration
 
-## Usage
-
-After installation, open a `#dssl2` file and enjoy `vim-dssl2`!
-
-`vim-dssl2` has no configuration options and only exposes `dssl2`'s syntax to
-vim.
+`vim-dssl2` exposes the following configuration options:
+```vim
+let g:dssl2i_continue=None " Defines the indentation level in a continuation
+                           " line after a \ character.
+let g:dssl2i_disable_parentheses=0 " Whether parentheses indentation should be
+                                   " disabled. This is relatively slow, so if
+                                   " you feel that your vim is chugging,
+                                   " disable them.
+let g:dssl2i_searchpair_timeout=150 " The maximal timeout after which
+                                    " searchpair is killed, in millis.
+```
 
 ## Contributing
 
