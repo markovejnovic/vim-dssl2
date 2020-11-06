@@ -93,19 +93,21 @@ syntax match Dssl2Operator "\s\s+or\s+"
 syntax match Dssl2Operator "\v\~"
 
 " Methods, Functions and Properties
-syntax match Dssl2Method "\.\@<=\<\D\k*\>\ze("
-syntax match Dssl2Property "\.\@<=\<\D\k*\>(\@!"
+syntax match Dssl2Method "\.\zs\<\D\k*\>\ze("
+syntax match Dssl2Property "\.\zs\<\D\k*\>(\@!"
 
-syntax match Dssl2FunctionDef /def.*\ze:\?/ contains=
-    \ Dssl2PContract,
-    \ Dssl2Param,
-    \ Dssl2DefKw,
-    \ Dssl2RContract,
-    \ Dssl2ArrowKw
-syntax match Dssl2DefKw /def\s\+/ contained
-syntax match Dssl2Param /\((\|,\s\+\)\zs\(\k\+\)\ze\(:\|)\|,\)/ contained
-syntax match Dssl2PContract /:\s\+\zs\S\+\ze\(,\|)\)/ contained " Param Contract
-syntax match Dssl2RContract /->\s\+\zs\S\+\ze:\?/ contained " Return Contract
+syntax region Dssl2FunctionDef start='def' end='\v(:|\))\s*$'
+    \ contains=Dssl2DefKw,Dssl2Params,Dssl2ReturnContract,Dssl2FunctionDefName
+syntax match Dssl2FunctionDefName '\v\k+\ze\(' contained
+syntax keyword Dssl2DefKw def contained
+syntax match Dssl2ReturnContract '\v-\>\s*(\k|(\[.*\]))+' contained
+    \ contains=Dssl2ReturnArrow
+syntax match Dssl2ReturnArrow '\v\s*\zs-\>\ze\s*' contained
+syntax region Dssl2Params start='(' end=')' contained contains=Dssl2Param
+syntax match Dssl2Param '\v(,)?\zs((\[.*\])|\k|:|\s)+\ze(,|\))' contained
+    \ contains=Dssl2ParamName,Dssl2ParamContract
+syntax match Dssl2ParamName '\v\k+\ze\s*(:|,|\))' contained
+syntax match Dssl2ParamContract '\v:\s+\zs(\k|\[.*])+\ze(,|\))' contained
 
 syntax keyword Dssl2Keywords
     \ let
@@ -159,10 +161,12 @@ highlight default link Dssl2Self Identifier
 highlight default link Dssl2Method Function
 highlight default link Dssl2Property Identifier
 
-" Custom Highlight Groups
-highlight default link Dssl2Param Function
-highlight default link Dssl2RContract Type
-highlight default link Dssl2PContract Type
+" Function highlighting
+highlight default link Dssl2FunctionDefName Function
+highlight default link Dssl2ParamName Identifier
+highlight default link Dssl2ReturnContract Type
+highlight default link Dssl2ParamContract Type
 highlight default link Dssl2DefKw Keyword
+highlight def link Dssl2ReturnArrow Keyword
 
 let b:current_syntax = "dssl2"
