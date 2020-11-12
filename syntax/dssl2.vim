@@ -89,7 +89,7 @@ syntax match Dssl2Operator "\v\s+is\s+"
 syntax match Dssl2Operator "\v\s+is\ not\s+"
 syntax match Dssl2Operator "\vnot\s+"
 syntax match Dssl2Operator "\v\s+and\s+"
-syntax match Dssl2Operator "\s\s+or\s+"
+syntax match Dssl2Operator "\v\s+or\s+"
 syntax match Dssl2Operator "\v\~"
 
 " Methods, Functions and Properties
