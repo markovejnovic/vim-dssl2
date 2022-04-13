@@ -1,4 +1,6 @@
-# vim-dssl2
+# 【🛑 UNMAINTAINED】vim-dssl2
+
+**Note: I have stopped maintaining this plugin. I do not plan on doing further improvements. I do not use dssl2 anymore nor do I plan on using it.**
 
 vim-dssl2 is a vim plugin for the [dssl2](https://github.com/tov/dssl2)
 [racket](https://racket-lang.org/) sublanguage.
